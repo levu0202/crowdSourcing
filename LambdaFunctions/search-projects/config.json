@@ -1,0 +1,6 @@
+{
+    "host"     : "calculatordb.czsdoezd9f9y.us-east-1.rds.amazonaws.com",
+    "user"     : "calcAdmin",
+    "password" : "calc:pass",
+    "database" : "info"
+}

@@ -1,0 +1,168 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  ViewProject
+
+  Sample SAM Template for ViewProject
+  
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 60
+  Api:
+    Cors:
+      AllowMethods: "'GET,POST,OPTIONS'"
+      AllowHeaders: "'content-type'"
+      AllowOrigin: "'*'"
+      # AllowCredentials: true  Uncomment only if you choose a specific origin instead of the * wildcard.
+
+Resources:
+  ViewProject:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: view-project/
+      Handler: app.lambdaHandler
+      Runtime: nodejs14.x
+      Architectures:
+        - x86_64
+      Events:
+        ViewProject:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /viewProject
+            Method: post
+            
+  ListProjects:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: list-projects/
+      Handler: app.lambdaHandler
+      Runtime: nodejs14.x
+      Architectures:
+        - x86_64
+      Events:
+        ListProjects:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /listProjects
+            Method: post
+  
+  CreatePledge:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: create-pledge/
+      Handler: app.lambdaHandler
+      Runtime: nodejs14.x
+      Architectures:
+        - x86_64
+      Events:
+        CreatePledge:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /createPledge
+            Method: post
+            
+  ViewProjectSupporter:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: view-project-supporter/
+      Handler: app.lambdaHandler
+      Runtime: nodejs14.x
+      Architectures:
+        - x86_64
+      Events:
+        ViewProjectSupporter:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /viewProjectSupporter
+            Method: post
+
+  ViewPledge:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: view-pledge/
+      Handler: app.lambdaHandler
+      Runtime: nodejs14.x
+      Architectures:
+        - x86_64
+      Events:
+        ViewPledge:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /viewPledge
+            Method: post
+            
+  SearchProjects:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: search-projects/
+      Handler: app.lambdaHandler
+      Runtime: nodejs14.x
+      Architectures:
+        - x86_64
+      Events:
+        SearchProjects:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /searchProjects
+            Method: post
+          
+  AddFunds:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: addFunds/
+      Handler: app.lambdaHandler
+      Runtime: nodejs14.x
+      Architectures:
+        - x86_64
+      Events:
+        AddFunds:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /addFunds
+            Method: post
+            
+  GiveDirectSupport:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: giveDirectSupport/
+      Handler: app.lambdaHandler
+      Runtime: nodejs14.x
+      Architectures:
+        - x86_64
+      Events:
+        GiveDirectSupport:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /giveDirectSupport
+            Method: post
+            
+  ReviewProjectActivity:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: reviewProjectActivity/
+      Handler: app.lambdaHandler
+      Runtime: nodejs14.x
+      Architectures:
+        - x86_64
+      Events:
+        ReviewProjectActivity:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /reviewProjectActivity
+            Method: post
+            
+  ReviewSupporterActivity:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: reviewSupporterActivity/
+      Handler: app.lambdaHandler
+      Runtime: nodejs14.x
+      Architectures:
+        - x86_64
+      Events:
+        ReviewSupporterActivity:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /reviewSupporterActivity
+            Method: post
